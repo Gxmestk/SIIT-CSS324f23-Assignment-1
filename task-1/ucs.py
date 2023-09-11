@@ -1,7 +1,6 @@
 from heapq import heappush, heappop, heapify
 from utils import create_node
 
-
 def uniform_cost_tree_search(problem):
     initial_node = create_node(problem.initial_state(), None,
                                "", 0, 0)
