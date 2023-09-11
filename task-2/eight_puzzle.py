@@ -49,6 +49,23 @@ def h1(s):
     return res
 
 def h3(s):
-    # implement this function
     board, _, _ = s
-    return 0
+    goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
+
+    h_value = 0
+
+    for i in range(9):
+        if board[i] != goal[i]:
+            current_row, current_col = i // 3, i % 3
+            goal_index = goal.index(board[i])
+            goal_row, goal_col = goal_index // 3, goal_index % 3
+
+            # Calculate the differences in row and column
+            row_diff = abs(current_row - goal_row)
+            col_diff = abs(current_col - goal_col)
+
+            # Add the row and column differences to the heuristic value
+            h_value += row_diff + col_diff
+
+    return h_value
+
